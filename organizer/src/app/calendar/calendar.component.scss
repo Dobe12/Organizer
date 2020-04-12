@@ -1,32 +1,65 @@
 table {
   width: 100%;
-  margin-bottom: 1rem;
-  border-collapse: collapse;
-
-  td, th {
-    border: 1px solid #000;
-    padding: .5rem 1rem;
-  }
+  margin: 1rem 0;
+  table-layout: fixed;
 
   td {
     text-align: center;
+    font-size: 1.5rem;
+    border-radius: 100%;
+  }
 
-    &.disabled {
-      opacity: .5;
-    }
+  th {
+    font-size: 1rem;
+    width: 2px;
+    background: none;
+    font-weight: 400;
 
-    &:hover:not(.disabled) {
-      background: #eee;
-      cursor: pointer;
-    }
-
-    .active {
-      color: var(--primary-color);
-      font-weight: bold;
-    }
-
-    .selected {
-      color: blue;
+    &.free {
+      color: var(--red-color);
     }
   }
 }
+
+.calendar__wrapper {
+  background: var(--primary-color);
+  border-radius: 16px;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  .day {
+    padding: 0.2rem;
+    border-radius: 100%;
+
+    &:hover:not(.disabled) {
+      box-shadow: 5px 5px 2px #404E5A;
+      background: #eee;
+      cursor: pointer;
+    }
+  }
+
+  .selected {
+    box-shadow: 5px 5px 2px #404E5A;
+    background: #eee;
+    font-weight: bold;
+    color: #505a63;
+  }
+
+  .active {
+    color: #dc3545;
+    font-weight: bold;
+  }
+
+  .disabled {
+    opacity: .3;
+  }
+}
+
+
+
+
+
+

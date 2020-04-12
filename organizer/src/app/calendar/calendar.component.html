@@ -1,27 +1,32 @@
-<table>
-  <thead>
+<div class="calendar__wrapper">
+  <selector></selector>
+  <table>
+    <thead>
     <tr>
-      <th>Восресенье</th>
+      <th class="free">Восресенье</th>
       <th>Понедельник</th>
       <th>Вторник</th>
       <th>Среда</th>
       <th>Четверг</th>
       <th>Пятница</th>
-      <th>Суббота</th>
+      <th class="free">Суббота</th>
     </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let week of calendar">
-    <td
-      *ngFor="let day of week.days"
-      [class.disabled] = "day.disabled"
-      (click)="selectDay(day.value)"
-    >
+    </thead>
+    <tbody>
+    <tr *ngFor="let week of calendar">
+      <td
+        *ngFor="let day of week.days"
+        [class.disabled] = "day.disabled"
+      >
       <span
-      [class.selected] = "day.selected"
-      [class.active] = "day.active"
-      > {{ day.value | moment: 'ddd DD'}}</span>
-    </td>
-  </tr>
-  </tbody>
-</table>
+        class="day"
+        [class.active] = "day.active"
+        [class.selected] = "day.selected"
+        (click)="selectDay(day.value)"
+      > {{ day.value | moment: 'DD'}}</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

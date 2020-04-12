@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  --primary-color: #dc3545;
-  --dark-color: #333333;
-  --light-color: #f4f4f4;
+  --backgroud: #404E5A;
+  --primary-color: #4E5D6A;
+  --red-color: #c86772;
+  --green-color: rgba(123, 237, 141, 0.72);
+  --task-bg: #748A9D;
 }
 
 * {
@@ -16,8 +18,8 @@ body {
   font-family: Roboto, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background: #fff;
-  color: #333333;
+  background: var(--backgroud);
+  color:  #A6BCD0;
 }
 
 a {
@@ -38,7 +40,7 @@ input {
   width: 100%;
   padding: 0.4rem;
   font-size: 1.2rem;
-  border: 1px solid #ccc;
+  border: none;
   outline: none;
   margin-bottom: .5rem;
 }
@@ -57,23 +59,24 @@ table th {
 .btn {
   display: inline-block;
   background: var(--light-color);
-  color: #333;
+  color: #fff;
   padding: .4rem 1.3rem;
   font-size: 1rem;
   border: none;
+  border-radius: 50px;
   cursor: pointer;
   margin-right: .5rem;
   transition: opacity .2s;
   outline: none;
 
   &:disabled {
-    background: var(--dark-color);
-    color: #fff;
+    background: #748A9D;
+    opacity: 0.3;
     cursor: not-allowed;
   }
 
   &:hover:not(:disabled) {
-    opacity: .8;
+    opacity: .5;
   }
 }
 
@@ -83,8 +86,11 @@ table th {
 }
 
 .btn-primary {
-  background: var(--primary-color);
-  color: #fff;
+  background: var(--green-color);
+}
+
+.btn-delete {
+  background: var(--red-color);
 }
 
 .text-center {

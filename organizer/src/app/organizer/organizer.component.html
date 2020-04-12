@@ -1,6 +1,6 @@
 <section>
   <header>
-    Organizer: <strong>{{dateService.date | async | moment:'DD.MM.YYYY'}}</strong>
+    <strong>{{dateService.date | async | moment:'DD.MM.YYYY'}}</strong>
     <hr>
   </header>
   <main>
@@ -10,17 +10,19 @@
         <strong>{{i + 1}}</strong>
         {{task.title}}
       </span>
-      <button class="btn btn-primary" (click)="removeTask(task)">Удалить</button>
+      <button class="btn btn-delete" (click)="removeTask(task)">Удалить</button>
     </li>
     </ul>
     <ng-template #noTasks>
-      <p class="text-center">Задач нет...</p>
+      <p class="no-tasks">Задач нет...</p>
     </ng-template>
   </main>
-
   <footer>
     <form (ngSubmit)="submit()" [formGroup]="form">
-      <input type="text" formControlName="title">
+      <input
+        class="add-task"
+        type="text" formControlName="title"
+        placeholder="Добавить задачу">
       <button
         type="submit"
         class="btn btn-primary btn-block"

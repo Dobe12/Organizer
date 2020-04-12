@@ -35,16 +35,24 @@ export class OrganizerComponent implements OnInit {
       title,
       date: this.dateService.date.value.format('DD-MM-YYYY')
     };
+    this.tasks.push(task);
 
     this.taskService.create(task).subscribe(res => {
-      this.tasks.push(res);
+      console.log(res);
       this.form.reset();
-    }, err => console.error(err));
+    }, err => {
+      this.tasks.pop();
+      console.log(err);
+    });
   }
 
   removeTask(task: Task) {
-  this.taskService.remove(task).subscribe(() => {
+    const preventTasks = this.tasks;
     this.tasks = this.tasks.filter(t => t.id !== task.id);
-  }, err => console.log(err));
+
+    this.taskService.remove(task).subscribe(() => {}, err => {
+      console.log(err);
+      this.tasks = preventTasks;
+    });
   }
 }
